@@ -1,0 +1,115 @@
+﻿@page
+@model GaneShop.Pages.Auth.RegisterModel
+@{
+}
+<style>
+        /* Stil pentru butonul de logare cu culoare verde */
+        .btn-login {
+            background-color: #28a745; /* Culoarea verde (poti ajusta codul culorii dupa preferinte) */
+            color: #fff; /* Culoarea textului */
+            border-color: #28a745; /* Culoarea marginii butonului */
+        }
+
+        /* La hover, schimbăm puțin culoarea */
+        .btn-login:hover {
+            background-color: #218838; /* O nuanță mai închisă la hover */
+            border-color: #1e7e34; /* O nuanță mai închisă a marginii la hover */
+        }
+    </style>
+
+
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="text-center  mb-5">Creaza un cont nou</h2>
+
+                @if(Model.errorMessage.Length>0)
+                {
+                <div class= 'alert  alert-warning alert-dismissible fade show' role='alert'>
+                <strong>@Model.errorMessage</strong>
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
+                </div>
+                }
+                
+               else if(Model.successMessage.Length>0)
+                {
+                    <div class= 'alert  alert-success alert-dismissible fade show' role='alert'>
+                    <strong>@Model.successMessage</strong>
+                    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
+                    </div>
+                }
+
+         <form method="post">
+
+             <div class="row mb-3">
+             <label class="col-sm-4 col-form-label">Numele</label>
+             <div class="col-sm-8">
+             <input class="form-control" asp-for="FirstName"/>
+             <span asp-validation-for="FirstName" class="text-danger"></span>
+             </div>
+             </div>
+
+              <div class="row mb-3">
+             <label class="col-sm-4 col-form-label">Prenumele</label>
+             <div class="col-sm-8">
+             <input class="form-control" asp-for="LastName"/>
+             <span asp-validation-for="LastName" class="text-danger"></span>
+             </div>
+             </div>
+
+              <div class="row mb-3">
+             <label class="col-sm-4 col-form-label">Email-ul</label>
+             <div class="col-sm-8">
+             <input class="form-control" asp-for="Email"/>
+             <span asp-validation-for="Email" class="text-danger"></span>
+             </div>
+             </div>
+
+             <div class="row mb-3">
+             <label class="col-sm-4 col-form-label">Telefonul</label>
+             <div class="col-sm-8">
+             <input class="form-control" asp-for="Phone"/>
+             <span asp-validation-for="Phone" class="text-danger"></span>
+             </div>
+             </div>
+
+
+             <div class="row mb-3">
+             <label class="col-sm-4 col-form-label">Adresa</label>
+             <div class="col-sm-8">
+             <input class="form-control" asp-for="Address"/>
+             <span asp-validation-for="Address" class="text-danger"></span>
+             </div>
+             </div>
+
+             <div class="row mb-3">
+             <label class="col-sm-4 col-form-label">Parola</label>
+             <div class="col-sm-8">
+             <input class="form-control" type="password" asp-for="Password"/>
+             <span asp-validation-for="Password" class="text-danger"></span>
+             </div>
+             </div>
+
+             <div class="row mb-3">
+             <label class="col-sm-4 col-form-label">Confirmare_parola</label>
+             <div class="col-sm-8">
+             <input class="form-control" type="password" asp-for="ConfirmPassword"/>
+             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+             </div>
+             </div>
+
+                 <div class="row mb-3">
+                 <div class="offset-sm-4 col-sm-4 d-grid"> 
+                 <button type="submit" class="btn btn-login">Trimitere</button>
+                 </div>
+                 <div class="col-sm-4 d-grid">
+                 <a class=" btn btn-login" href="/" role="button">Inchidere</a>
+                 </div>
+                 </div>
+             </form>
+            </div>
+        </div>
+    </div>
+</div>

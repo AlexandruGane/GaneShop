@@ -1,0 +1,62 @@
+﻿@page
+@model GaneShop.Pages.CardModel
+@{
+}
+
+<div class="row border rounded-3">
+    <div class="col-md-8 p-3">
+        <h4>Cosul de cumparaturi</h4>
+
+        <table class="table align-middle">
+            <tr>
+                <td style="width:100px"></td>
+                <td></td>
+                <td style="width:140px"></td>
+                <td style="width:70px"></td>
+                <td style="width:30px"></td>
+            </tr>
+
+
+            @foreach(var item in Model.listOrderItems)
+            {
+
+                <tr>
+                <td><img src="~/images/Parfumuri/@item.ParfumuriInfo.imagine " width="100" class="rounded" alt="..."></td>
+                <td>
+                    <h4>@item.ParfumuriInfo.Title</h4>
+                    <p>
+                        Categorie:@item.ParfumuriInfo.categorie<br>
+                        Pret:@(item.ParfumuriInfo.Pret) euro
+                     
+                    </p>
+                </td>
+                <td>
+                       <a  class="btn btn-outline-secondary btn-sm" href="" role="button">-</a>
+                        <span class="border rounded-3 p-2 m-1">@item.numCopies</span>
+                        <a  class="btn btn-outline-secondary btn-sm" href="" role="button">+</a>
+                </td>
+
+
+                <td>@(item.totalPrice)euro</td>
+                <td>
+                    <a href=""><i class="bi bi-trash text-danger h4"></i></a>
+                </td>
+            </tr>
+                
+
+
+
+
+
+            }
+            
+            
+        </table>
+    </div>
+    <div class="col-md-4">
+        <div class="text-white rounded my-2 p-3" style="background-color:#4B5320;">
+            <h4>Produse comandate</h4>
+            <hr>
+        </div>
+</div>
+</div>
